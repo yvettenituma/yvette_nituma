@@ -111,14 +111,14 @@
                 <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
                 <td class="py-3 px-4 space-x-3">
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
-                    <a href="<?=site_url('users/update/'.$user['id']);?>"
+                    <a href="<?=site_url('users/update/'.$user['ID']);?>"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition duration-200 shadow">
                       ✏️ Update
                     </a>
                   <?php endif; ?>
 
                   <?php if($logged_in_user['role'] === 'admin'): ?>
-                    <a href="<?=site_url('users/delete/'.$user['id']);?>"
+                    <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-600 text-white hover:bg-pink-700 transition duration-200 shadow">
                       🗑️ Delete
