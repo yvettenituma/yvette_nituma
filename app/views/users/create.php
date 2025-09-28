@@ -12,10 +12,10 @@ if (!isset($logged_in_user)) {
   <title>Create User</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
+<body class="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
 
-  <div class="bg-white bg-opacity-80 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
-    <h1 class="text-2xl font-semibold text-center text-pink-600 mb-6">Create User</h1>
+  <div class="bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
+    <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Create User</h1>
 
     <form id="user-form" action="<?=site_url('users/create/')?>" method="POST" class="space-y-4">
 
@@ -23,28 +23,28 @@ if (!isset($logged_in_user)) {
       <div>
         <input type="text" name="username" placeholder="Username" required
                value="<?= isset($username) ? html_escape($username) : '' ?>"
-               class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
       </div>
 
       <!-- Email -->
       <div>
         <input type="email" name="email" placeholder="Email" required
                value="<?= isset($email) ? html_escape($email) : '' ?>"
-               class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
       </div>
 
       <!-- Password with toggle -->
       <div class="relative">
         <input type="password" name="password" id="password" placeholder="Password" required
-               class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
-        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-pink-600" id="togglePassword"></i>
+               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600" id="togglePassword"></i>
       </div>
 
       <!-- Role -->
       <?php if($logged_in_user['role'] === 'admin'): ?>
         <div>
           <select name="role" required
-                  class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
+                  class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
             <option value="" disabled selected>Select Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
@@ -57,13 +57,13 @@ if (!isset($logged_in_user)) {
 
       <!-- Submit -->
       <button type="submit"
-              class="w-full bg-pink-300 hover:bg-pink-400 text-pink-800 font-medium py-3 rounded-xl shadow-md transition duration-200">
+              class="w-full bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
         Create User
       </button>
     </form>
 
     <div class="text-center mt-6">
-      <a href="<?=site_url('/users'); ?>" class="inline-block bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-xl shadow-md transition duration-200">
+      <a href="<?=site_url('/users'); ?>" class="inline-block bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-xl shadow-md transition duration-200">
         Return to Home
       </a>
     </div>

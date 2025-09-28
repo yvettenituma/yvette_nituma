@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Directory</title>
+  <title>USER DIRECTORY</title>
   <link rel="stylesheet" href="<?=base_url();?>/public/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -76,7 +76,7 @@
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-gray-900 to-gray-700 shadow-md relative z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-      <a href="#" class="text-white font-semibold text-xl tracking-wide">📊 User Management</a>
+      <a href="#" class="text-white font-semibold text-xl tracking-wide">USER MANAGEMENT</a>
       <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
     </div>
   </nav>
@@ -143,7 +143,7 @@
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['ID']);?>"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-700 text-white hover:bg-gray-800 transition duration-200 shadow">
-                      ✏️ Update
+                      Update
                     </a>
                   <?php endif; ?>
 
@@ -151,7 +151,7 @@
                     <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-gray-900 transition duration-200 shadow">
-                      🗑️ Delete
+                      Delete
                     </a>
                   <?php endif; ?>
                 </td>
@@ -172,7 +172,7 @@
       <div class="mt-6 text-center">
         <a href="<?=site_url('users/create')?>"
            class="inline-block bg-gray-700 hover:bg-gray-800 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
-          ➕ Create New User
+          Create New User
         </a>
       </div>
     </div>
