@@ -26,7 +26,7 @@
       align-items: center;
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom right, #fbcfe8, #fce7f3, #f9a8d4);
+      background: linear-gradient(to bottom right, #ede9fe, #ddd6fe, #a78bfa);
     }
 
     .login {
@@ -35,7 +35,7 @@
       width: 500px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #f9a8d4;
+      border: 1px solid #a78bfa;
       display: flex;
       flex-direction: column;
       gap: 25px;
@@ -45,7 +45,7 @@
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #db2777;
+      color: #6d28d9;
       margin-bottom: 10px;
     }
 
@@ -58,15 +58,15 @@
       width: 100%;
       padding: 15px 45px 15px 20px;
       font-size: 1.1em;
-      color: #a21caf;
+      color: #4c1d95;
       border-radius: 8px;
-      background: #fdf2f8;
-      border: 1px solid #fbcfe8;
+      background: #f5f3ff;
+      border: 1px solid #c4b5fd;
       outline: none;
     }
 
     .inputBox ::placeholder {
-      color: #d63384;
+      color: #7c3aed;
     }
 
     .toggle-password {
@@ -76,14 +76,14 @@
       transform: translateY(-50%);
       cursor: pointer;
       font-size: 1.1em;
-      color: #d63384;
+      color: #7c3aed;
     }
 
     button {
       width: 100%;
       padding: 15px;
       border: none;
-      background: #ec4899;
+      background: #8b5cf6;
       color: #fff;
       font-size: 1.15em;
       font-weight: 500;
@@ -93,7 +93,7 @@
     }
 
     button:hover {
-      background: #db2777;
+      background: #6d28d9;
     }
 
     .group {
@@ -102,7 +102,7 @@
 
     .group a {
       font-size: 1em;
-      color: #d63384;
+      color: #7c3aed;
       font-weight: 500;
       text-decoration: none;
     }
@@ -112,10 +112,10 @@
     }
 
     .error-box {
-      background: rgba(255,0,0,0.08);
-      color: #db2777;
+      background: rgba(139, 92, 246, 0.08);
+      color: #6d28d9;
       padding: 10px;
-      border: 1px solid #db2777;
+      border: 1px solid #6d28d9;
       border-radius: 8px;
       text-align: center;
       font-size: 0.95em;
