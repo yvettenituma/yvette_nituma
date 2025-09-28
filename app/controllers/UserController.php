@@ -188,7 +188,7 @@ class UserController extends Controller {
                 'username' => $username,
                 'email'    => $email,
                 'password' => $password,
-                'role'     => $role
+                
             ];
 
             if ($this->UserModel->insert($data)) {
