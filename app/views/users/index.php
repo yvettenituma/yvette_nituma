@@ -110,7 +110,7 @@
                 </td>
                 <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
                 <td class="py-3 px-4 space-x-3">
-                  <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['id']): ?>
+                  <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['id']);?>"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition duration-200 shadow">
                       ✏️ Update
