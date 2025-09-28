@@ -20,6 +20,8 @@
     body {
       position: relative;
       z-index: 1;
+      background: linear-gradient(to bottom right, #1e0226, #3b0a3b, #5c0f5c); /* purple to black gradient */
+      color: #f3e8ff;
     }
 
     /* Table row hover */
@@ -27,8 +29,9 @@
       transition: all 0.2s ease-in-out;
     }
     table tbody tr:hover {
-      background: #f5d0fe; /* violet-200 */
+      background: #d8b4fe; /* light purple */
       transform: scale(1.01);
+      color: #1a0520; /* dark text on hover */
     }
 
     /* Buttons glow on hover */
@@ -37,8 +40,8 @@
       box-shadow: 0 0 15px rgba(219, 39, 119, 0.6);
     }
     a.bg-black:hover {
-      background-color: #6d28d9 !important; /* purple-700 */
-      box-shadow: 0 0 15px rgba(109, 40, 217, 0.6);
+      background-color: #7c3aed !important; /* purple-700 */
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
     }
 
     /* Pagination spacing */
@@ -52,10 +55,10 @@
     .pagination a {
       display: inline-block;
       padding: 0.5rem 1rem;
-      background-color: #6d28d9; /* purple-700 */
+      background-color: #7c3aed; /* purple-700 */
       color: white;
       border-radius: 0.5rem;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       text-decoration: none;
       font-weight: 500;
       transition: all 0.2s ease-in-out;
@@ -71,12 +74,30 @@
       color: white;
       border-radius: 0.5rem;
       font-weight: 600;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* Search bar focus */
+    input:focus {
+      outline: none;
+      ring: none;
+      box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.4);
+    }
+
+    /* Table header */
+    table thead tr {
+      background: linear-gradient(to right, #111827, #7c3aed);
+      color: white;
+    }
+
+    /* Table cells */
+    td, th {
+      padding: 0.75rem 1rem;
     }
   </style>
 </head>
 
-<body class="bg-gradient-to-br from-purple-100 via-purple-50 to-purple-200 min-h-screen font-sans text-gray-800">
+<body class="min-h-screen font-sans">
 
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-black to-purple-800 shadow-md relative z-10">
@@ -88,24 +109,24 @@
 
   <!-- Main Content -->
   <div class="max-w-6xl mx-auto mt-10 px-4 relative z-10">
-    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-pink-400/50">
+    <div class="bg-black bg-opacity-80 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-pink-400/50">
 
       <!-- Logged In User Display -->
       <?php if(!empty($logged_in_user)): ?>
-        <div class="mb-6 bg-purple-100 text-purple-900 px-4 py-3 rounded-lg shadow">
+        <div class="mb-6 bg-purple-700 text-white px-4 py-3 rounded-lg shadow">
           <strong>Welcome:</strong> 
           <span class="font-medium block"><?= html_escape($logged_in_user['username']); ?></span>
           <span class="text-sm">Role: <span class="font-semibold"><?= html_escape($logged_in_user['role']); ?></span></span>
         </div>
       <?php else: ?>
-        <div class="mb-6 bg-red-100 text-red-700 px-4 py-3 rounded-lg shadow">
+        <div class="mb-6 bg-red-700 text-white px-4 py-3 rounded-lg shadow">
           Logged in user not found
         </div>
       <?php endif; ?>
 
       <!-- Header -->
       <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold text-gray-800">👥 USER DIRECTORY</h1>
+        <h1 class="text-2xl font-semibold">👥 USER DIRECTORY</h1>
 
         <!-- Search Bar -->
         <form method="get" action="<?=site_url('users');?>" class="flex">
@@ -114,7 +135,7 @@
             name="q" 
             value="<?=html_escape($_GET['q'] ?? '')?>" 
             placeholder="Search user..." 
-            class="w-full border border-purple-300 bg-purple-50 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-800">
+            class="w-full border border-purple-700 bg-purple-900 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white">
           <button type="submit" class="bg-purple-700 hover:bg-pink-600 text-white px-4 rounded-r-xl transition">
             🔍
           </button>
@@ -122,32 +143,32 @@
       </div>
       
       <!-- Table -->
-      <div class="overflow-x-auto rounded-xl border border-purple-300 shadow-md">
+      <div class="overflow-x-auto rounded-xl border border-purple-700 shadow-md">
         <table class="w-full text-center border-collapse">
           <thead>
-            <tr class="bg-gradient-to-r from-black to-purple-800 text-white">
-              <th class="py-3 px-4">ID</th>
-              <th class="py-3 px-4">Username</th>
-              <th class="py-3 px-4">Email</th>
-              <th class="py-3 px-4">Role</th>
-              <th class="py-3 px-4">Action</th>
+            <tr>
+              <th>ID</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-purple-100">
+          <tbody class="divide-y divide-purple-700">
             <?php foreach(html_escape($users) as $user): ?>
-              <tr class="hover:bg-purple-50 transition duration-200">
-                <td class="py-3 px-4"><?=($user['ID']);?></td>
-                <td class="py-3 px-4"><?=($user['Username']);?></td>
-                <td class="py-3 px-4">
-                  <span class="bg-purple-100 text-purple-900 text-sm font-medium px-3 py-1 rounded-full">
+              <tr>
+                <td><?=($user['ID']);?></td>
+                <td><?=($user['Username']);?></td>
+                <td>
+                  <span class="bg-purple-700 text-white text-sm font-medium px-3 py-1 rounded-full">
                     <?=($user['Email']);?>
                   </span>
                 </td>
-                <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
-                <td class="py-3 px-4 space-x-3">
+                <td class="font-medium"><?=($user['role']);?></td>
+                <td class="space-x-3">
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['ID']);?>"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-pink-600 transition duration-200 shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-pink-600 transition shadow">
                       Update
                     </a>
                   <?php endif; ?>
@@ -155,7 +176,7 @@
                   <?php if($logged_in_user['role'] === 'admin'): ?>
                     <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-purple-700 transition duration-200 shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-purple-700 transition shadow">
                       Delete
                     </a>
                   <?php endif; ?>
