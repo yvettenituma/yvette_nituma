@@ -182,7 +182,7 @@ class UserController extends Controller {
             $password = password_hash($this->io->post('password'), PASSWORD_BCRYPT);
 
             // Normal registration defaults to 'user' role
-            $role = 'user';
+            
 
             $data = [
                 'username' => $username,
