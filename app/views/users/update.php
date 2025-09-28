@@ -16,14 +16,14 @@
       <!-- Username -->
       <div>
         <label class="block text-pink-600 mb-1">Username</label>
-        <input type="text" name="username" value="<?= html_escape($user['username'])?>" required
+        <input type="text" name="username" value="<?= html_escape($user['Username'])?>" required
                class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
       </div>
 
       <!-- Email -->
       <div>
         <label class="block text-pink-600 mb-1">Email Address</label>
-        <input type="email" name="email" value="<?= html_escape($user['email'])?>" required
+        <input type="email" name="email" value="<?= html_escape($user['Email'])?>" required
                class="w-full px-4 py-3 border border-pink-200 bg-pink-50 rounded-xl focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-800">
       </div>
 
