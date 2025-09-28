@@ -16,7 +16,7 @@
     body, section {
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom right, #fbcfe8, #fce7f3, #f9a8d4);
+      background: linear-gradient(to bottom right, #ede9fe, #ddd6fe, #c4b5fd);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -28,14 +28,14 @@
       width: 500px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #f9a8d4;
+      border: 1px solid #c4b5fd;
     }
 
     .login h2 {
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #db2777; /* Same pink tone as directory */
+      color: #6d28d9; /* purple-700 */
       margin-bottom: 25px;
     }
 
@@ -46,14 +46,14 @@
       margin-bottom: 18px;
       font-size: 1.05em;
       border-radius: 8px;
-      border: 1px solid #fbcfe8;
-      background: #fdf2f8;
-      color: #a21caf;
+      border: 1px solid #c4b5fd; /* purple-300 */
+      background: #f5f3ff; /* purple-50 */
+      color: #4c1d95; /* purple-900 */
       outline: none;
     }
 
     .login input::placeholder {
-      color: #d63384;
+      color: #7c3aed; /* purple-600 */
     }
 
     .password-box {
@@ -66,7 +66,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #d63384;
+      color: #7c3aed; /* purple-600 */
     }
 
     #btn {
@@ -76,14 +76,15 @@
       font-weight: 500;
       border: none;
       border-radius: 10px;
-      background: #ec4899;
+      background: #7c3aed; /* purple-600 */
       color: white;
       cursor: pointer;
       transition: background 0.3s ease;
+      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
     }
 
     #btn:hover {
-      background: #db2777;
+      background: #6d28d9; /* purple-700 */
     }
 
     .group {
@@ -92,7 +93,7 @@
     }
 
     .group a {
-      color: #d63384;
+      color: #6d28d9;
       text-decoration: none;
       font-weight: 500;
     }
