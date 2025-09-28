@@ -11,7 +11,7 @@
   <div class="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
     <h2 class="text-2xl font-semibold text-center text-pink-600 mb-6">📝 Update User</h2>
 
-    <form action="<?=site_url('users/update/'.$user['id'])?>" method="POST" class="space-y-4">
+    <form action="<?=site_url('users/update/'.$user['ID'])?>" method="POST" class="space-y-4">
       
       <!-- Username -->
       <div>
