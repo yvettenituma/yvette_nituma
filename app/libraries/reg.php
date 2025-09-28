@@ -51,8 +51,8 @@ class reg {
 
         if ($user && password_verify($password, $user['password'])) {
             $this->_lava->session->set_userdata([
-                'id' => $user['id'],
-                'username' => $user['username'],
+                'id' => $user['ID'],
+                'username' => $user['Username'],
                 'role' => $user['role'],
                 'logged_in' => true
             ]);

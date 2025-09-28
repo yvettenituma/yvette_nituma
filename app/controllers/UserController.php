@@ -215,8 +215,8 @@ class UserController extends Controller {
             if ($user) {
                 if ($this->reg->login($username, $password)) {
                     $_SESSION['user'] = [
-                        'id'       => $user['id'],
-                        'username' => $user['username'],
+                        'id'       => $user['ID'],
+                        'username' => $user['Username'],
                         'role'     => $user['role']
                     ];
 
