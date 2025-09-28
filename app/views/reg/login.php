@@ -4,47 +4,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gradient-to-br from-purple-100 via-purple-200 to-purple-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
 
-  <div class="relative bg-purple-50/90 p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn overflow-hidden">
-    <!-- Floating Shapes -->
-    <div class="absolute -top-6 left-6 w-20 h-20 bg-purple-400/30 rotate-12 rounded-xl blur-lg"></div>
-    <div class="absolute bottom-6 right-6 w-28 h-28 bg-purple-600/20 rounded-full blur-xl"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-purple-300/10 rounded-full blur-2xl"></div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <h2 class="text-2xl font-semibold text-purple-700 text-center mb-6 relative z-10">🔐 Login</h2>
-
-    <form action="<?=site_url('auth/login')?>" method="POST" class="space-y-4 relative z-10">
-      <div>
-        <label class="block text-purple-700 mb-1">Username</label>
-        <input type="text" name="username" required
-               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none">
-      </div>
-      <div>
-        <label class="block text-purple-700 mb-1">Password</label>
-        <input type="password" name="password" required
-               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none">
-      </div>
-      <button type="submit"
-              class="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
-        Login
-      </button>
-    </form>
-
-    <a href="<?=site_url('/register');?>" class="mt-4 block text-center bg-purple-300 hover:bg-purple-400 text-white py-2 rounded-xl shadow transition relative z-10">
-      📝 Register Here
-    </a>
-  </div>
-
-  <!-- Animation -->
   <style>
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
     }
-    .animate-fadeIn { animation: fadeIn 0.8s ease; }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(to bottom right, #ede9fe, #ddd6fe, #a78bfa);
+    }
+
+    .login {
+      background: white;
+      padding: 50px 40px;
+      width: 500px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid #a78bfa;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .login h2 {
+      text-align: center;
+      font-size: 2em;
+      font-weight: 600;
+      color: #6d28d9;
+      margin-bottom: 10px;
+    }
+
+    .inputBox {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .inputBox input {
+      width: 100%;
+      padding: 15px 45px 15px 20px;
+      font-size: 1.1em;
+      color: #4c1d95;
+      border-radius: 8px;
+      background: #f5f3ff;
+      border: 1px solid #c4b5fd;
+      outline: none;
+    }
+
+    .inputBox ::placeholder {
+      color: #7c3aed;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #7c3aed;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      background: #8b5cf6;
+      color: #fff;
+      font-size: 1.15em;
+      font-weight: 500;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #6d28d9;
+    }
+
+    .group {
+      text-align: center;
+    }
+
+    .group a {
+      font-size: 1em;
+      color: #7c3aed;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .group a:hover {
+      text-decoration: underline;
+    }
+
+    .error-box {
+      background: rgba(139, 92, 246, 0.08);
+      color: #6d28d9;
+      padding: 10px;
+      border: 1px solid #6d28d9;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 0.95em;
+      margin-bottom: 10px;
+    }
   </style>
+</head>
+<body>
+  <section>
+    <div class="login">
+      <h2>Login</h2>
+
+      <?php if (!empty($error)): ?>
+        <div class="error-box">
+          <?= $error ?>
+        </div>
+      <?php endif; ?>
+
+      <form method="post" action="<?= site_url('reg/login') ?>">
+        <div class="inputBox">
+          <input type="text" placeholder="Username" name="username" required>
+        </div>
+
+        <div class="inputBox">
+          <input type="password" placeholder="Password" name="password" id="password" required>
+          <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+
+        <button type="submit" id="btn">Login</button>
+      </form>
+
+      <div class="group">
+        <p style="font-size: 0.9em;">
+          Don't have an account? <a href="<?= site_url('reg/register'); ?>">Register here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function () {
+      const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+      password.setAttribute('type', type);
+
+      this.classList.toggle('fa-eye');
+      this.classList.toggle('fa-eye-slash');
+    });
+  </script>
 </body>
 </html>
