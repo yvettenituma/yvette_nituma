@@ -6,33 +6,33 @@
   <title>Update User</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
+<body class="bg-gradient-to-br from-purple-900 via-purple-800 to-black min-h-screen flex items-center justify-center font-sans text-gray-100">
 
-  <div class="bg-white bg-opacity-95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
-    <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">Update User</h2>
+  <div class="bg-black bg-opacity-80 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
+    <h2 class="text-2xl font-semibold text-center text-purple-300 mb-6">Update User</h2>
 
     <form action="<?=site_url('users/update/'.$user['ID'])?>" method="POST" class="space-y-4">
       
       <!-- Username -->
       <div>
-        <label class="block text-gray-700 mb-1">Username</label>
+        <label class="block text-purple-300 mb-1">Username</label>
         <input type="text" name="username" value="<?= html_escape($user['Username'])?>" required
-               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
       </div>
 
       <!-- Email -->
       <div>
-        <label class="block text-gray-700 mb-1">Email Address</label>
+        <label class="block text-purple-300 mb-1">Email Address</label>
         <input type="email" name="email" value="<?= html_escape($user['Email'])?>" required
-               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
       </div>
 
       <?php if(!empty($logged_in_user) && $logged_in_user['role'] === 'admin'): ?>
         <!-- Role Dropdown for Admins -->
         <div>
-          <label class="block text-gray-700 mb-1">Role</label>
+          <label class="block text-purple-300 mb-1">Role</label>
           <select name="role" required
-                  class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+                  class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100">
             <option value="user" <?= $user['role'] === 'user' ? 'selected' : ''; ?>>User</option>
             <option value="admin" <?= $user['role'] === 'admin' ? 'selected' : ''; ?>>Admin</option>
           </select>
@@ -40,23 +40,23 @@
 
         <!-- Password Field for Admins -->
         <div class="relative">
-          <label class="block text-gray-700 mb-1">Password</label>
+          <label class="block text-purple-300 mb-1">Password</label>
           <input type="password" name="password" id="password"
                  placeholder="Leave blank to keep current password"
-                 class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
-          <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600" id="togglePassword"></i>
+                 class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
+          <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-purple-400" id="togglePassword"></i>
         </div>
       <?php endif; ?>
 
       <!-- Submit Button -->
       <button type="submit"
-              class="w-full bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
+              class="w-full bg-purple-700 hover:bg-purple-500 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
         Update User
       </button>
     </form>
 
     <!-- Return Button -->
-    <a href="<?=site_url('/users');?>" class="mt-4 block text-center bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-xl shadow transition">
+    <a href="<?=site_url('/users');?>" class="mt-4 block text-center bg-purple-600 hover:bg-purple-400 text-white py-2 rounded-xl shadow transition duration-200">
       Return
     </a>
   </div>

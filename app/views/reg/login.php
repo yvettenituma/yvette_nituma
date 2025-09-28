@@ -26,26 +26,27 @@
       align-items: center;
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom right, #f5f5f5, #e5e5e5, #d4d4d4); /* greys */
+      background: linear-gradient(to bottom right, #1f0520, #3b0a3b, #5c0f5c); /* purple to black gradient */
     }
 
     .login {
-      background: white;
+      background: rgba(0,0,0,0.8);
       padding: 50px 40px;
       width: 500px;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #d1d5db; /* grey-300 */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid #7c3aed; /* purple border */
       display: flex;
       flex-direction: column;
       gap: 25px;
+      color: #f3e8ff;
     }
 
     .login h2 {
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #111827; /* near black */
+      color: #d8b4fe; /* light purple */
       margin-bottom: 10px;
     }
 
@@ -58,21 +59,21 @@
       width: 100%;
       padding: 15px 45px 15px 20px;
       font-size: 1.1em;
-      color: #111827;
+      color: #f3e8ff;
       border-radius: 8px;
-      background: #f9fafb; /* grey-50 */
-      border: 1px solid #9ca3af; /* grey-400 */
+      background: #1a0520; /* dark purple */
+      border: 1px solid #7c3aed; /* purple border */
       outline: none;
       transition: all 0.3s ease;
     }
 
     .inputBox input:focus {
-      border-color: #6b7280; /* grey-500 */
-      box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.3);
+      border-color: #d8b4fe;
+      box-shadow: 0 0 0 3px rgba(216, 180, 254, 0.4);
     }
 
     .inputBox ::placeholder {
-      color: #6b7280; /* grey-500 */
+      color: #d8b4fe; /* light purple placeholder */
     }
 
     .toggle-password {
@@ -82,25 +83,27 @@
       transform: translateY(-50%);
       cursor: pointer;
       font-size: 1.1em;
-      color: #4b5563; /* grey-600 */
+      color: #d8b4fe;
     }
 
     button {
       width: 100%;
       padding: 15px;
       border: none;
-      background: #111827; /* black */
+      background: #7c3aed; /* purple button */
       color: #fff;
       font-size: 1.15em;
       font-weight: 500;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
     button:hover {
-      background: #374151; /* dark grey */
+      background: #a78bfa; /* lighter purple on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
 
     .group {
@@ -109,21 +112,22 @@
 
     .group a {
       font-size: 1em;
-      color: #1f2937; /* dark grey */
+      color: #d8b4fe; /* light purple */
       font-weight: 500;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     .group a:hover {
       text-decoration: underline;
-      color: #000;
+      color: #a78bfa; /* lighter purple on hover */
     }
 
     .error-box {
-      background: rgba(107, 114, 128, 0.1); /* light grey bg */
-      color: #111827;
+      background: rgba(216, 180, 254, 0.1); /* light purple bg */
+      color: #f3e8ff;
       padding: 10px;
-      border: 1px solid #6b7280;
+      border: 1px solid #d8b4fe;
       border-radius: 8px;
       text-align: center;
       font-size: 0.95em;

@@ -27,13 +27,18 @@
       transition: all 0.2s ease-in-out;
     }
     table tbody tr:hover {
-      background: #f3e8ff; /* light purple */
+      background: #f5d0fe; /* violet-200 */
       transform: scale(1.01);
     }
 
     /* Buttons glow on hover */
-    a.bg-purple-700:hover, a.bg-purple-800:hover, a.bg-black:hover {
-      box-shadow: 0 0 15px rgba(139, 92, 246, 0.6);
+    a.bg-purple-700:hover, a.bg-purple-800:hover {
+      background-color: #db2777 !important; /* pink-600 */
+      box-shadow: 0 0 15px rgba(219, 39, 119, 0.6);
+    }
+    a.bg-black:hover {
+      background-color: #6d28d9 !important; /* purple-700 */
+      box-shadow: 0 0 15px rgba(109, 40, 217, 0.6);
     }
 
     /* Pagination spacing */
@@ -56,7 +61,7 @@
       transition: all 0.2s ease-in-out;
     }
     .pagination a:hover {
-      background-color: #4c1d95; /* purple-900 */
+      background-color: #db2777; /* pink-600 */
       transform: translateY(-2px);
     }
     .pagination strong {
@@ -77,13 +82,13 @@
   <nav class="bg-gradient-to-r from-black to-purple-800 shadow-md relative z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
       <a href="#" class="text-white font-semibold text-xl tracking-wide">USER MANAGEMENT</a>
-      <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
+      <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:text-pink-400 transition">Logout</a>
     </div>
   </nav>
 
   <!-- Main Content -->
   <div class="max-w-6xl mx-auto mt-10 px-4 relative z-10">
-    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-purple-400/50">
+    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-pink-400/50">
 
       <!-- Logged In User Display -->
       <?php if(!empty($logged_in_user)): ?>
@@ -100,7 +105,7 @@
 
       <!-- Header -->
       <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold text-gray-800">USER DIRECTORY</h1>
+        <h1 class="text-2xl font-semibold text-gray-800">👥 USER DIRECTORY</h1>
 
         <!-- Search Bar -->
         <form method="get" action="<?=site_url('users');?>" class="flex">
@@ -109,8 +114,8 @@
             name="q" 
             value="<?=html_escape($_GET['q'] ?? '')?>" 
             placeholder="Search user..." 
-            class="w-full border border-purple-300 bg-purple-50 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400 text-gray-800">
-          <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-4 rounded-r-xl transition">
+            class="w-full border border-purple-300 bg-purple-50 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 text-gray-800">
+          <button type="submit" class="bg-purple-700 hover:bg-pink-600 text-white px-4 rounded-r-xl transition">
             🔍
           </button>
         </form>
@@ -142,7 +147,7 @@
                 <td class="py-3 px-4 space-x-3">
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['ID']);?>"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition duration-200 shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-pink-600 transition duration-200 shadow">
                       Update
                     </a>
                   <?php endif; ?>
@@ -150,7 +155,7 @@
                   <?php if($logged_in_user['role'] === 'admin'): ?>
                     <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-gray-900 transition duration-200 shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-purple-700 transition duration-200 shadow">
                       Delete
                     </a>
                   <?php endif; ?>
@@ -171,7 +176,7 @@
       <!-- Create New User -->
       <div class="mt-6 text-center">
         <a href="<?=site_url('users/create')?>"
-           class="inline-block bg-purple-700 hover:bg-purple-800 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
+           class="inline-block bg-purple-700 hover:bg-pink-600 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
           Create New User
         </a>
       </div>

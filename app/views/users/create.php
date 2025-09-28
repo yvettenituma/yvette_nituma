@@ -12,10 +12,10 @@ if (!isset($logged_in_user)) {
   <title>Create User</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
+<body class="bg-gradient-to-br from-purple-900 via-purple-800 to-black min-h-screen flex items-center justify-center font-sans text-gray-100">
 
-  <div class="bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
-    <h1 class="text-2xl font-semibold text-center text-gray-700 mb-6">Create User</h1>
+  <div class="bg-black bg-opacity-80 backdrop-blur-md p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
+    <h1 class="text-2xl font-semibold text-center text-purple-300 mb-6">Create User</h1>
 
     <form id="user-form" action="<?=site_url('users/create/')?>" method="POST" class="space-y-4">
 
@@ -23,47 +23,46 @@ if (!isset($logged_in_user)) {
       <div>
         <input type="text" name="username" placeholder="Username" required
                value="<?= isset($username) ? html_escape($username) : '' ?>"
-               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
       </div>
 
       <!-- Email -->
       <div>
         <input type="email" name="email" placeholder="Email" required
                value="<?= isset($email) ? html_escape($email) : '' ?>"
-               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+               class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
       </div>
 
       <!-- Password with toggle -->
       <div class="relative">
         <input type="password" name="password" id="password" placeholder="Password" required
-               class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
-        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600" id="togglePassword"></i>
+               class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100 placeholder-purple-400">
+        <i class="fa-solid fa-eye absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-purple-400" id="togglePassword"></i>
       </div>
 
       <!-- Role -->
       <?php if($logged_in_user['role'] === 'admin'): ?>
         <div>
           <select name="role" required
-                  class="w-full px-4 py-3 border border-gray-300 bg-gray-100 rounded-xl focus:ring-2 focus:ring-gray-400 focus:outline-none text-gray-800">
+                  class="w-full px-4 py-3 border border-purple-700 bg-purple-900 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-100">
             <option value="" disabled selected>Select Role</option>
             <option value="user">User</option>
             <option value="admin">Admin</option>
           </select>
         </div>
       <?php else: ?>
-        <!-- Normal users can only create a user account -->
         <input type="hidden" name="role" value="user">
       <?php endif; ?>
 
       <!-- Submit -->
       <button type="submit"
-              class="w-full bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
+              class="w-full bg-purple-700 hover:bg-purple-500 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
         Create User
       </button>
     </form>
 
     <div class="text-center mt-6">
-      <a href="<?=site_url('/users'); ?>" class="inline-block bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded-xl shadow-md transition duration-200">
+      <a href="<?=site_url('/users'); ?>" class="inline-block bg-purple-600 hover:bg-purple-400 text-white py-2 px-4 rounded-xl shadow-md transition duration-200">
         Return to Home
       </a>
     </div>

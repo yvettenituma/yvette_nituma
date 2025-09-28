@@ -16,15 +16,16 @@
     body, section {
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom right, #f5f5f5, #e5e5e5, #d4d4d4);
+      background: linear-gradient(to bottom right, #1f0520, #3b0a3b, #5c0f5c); /* dark purple to black gradient */
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       overflow: hidden;
+      color: #e0d7f5;
     }
 
-    /* Background Blobs - grey tones */
+    /* Background Blobs */
     .blob {
       position: absolute;
       border-radius: 50%;
@@ -35,14 +36,14 @@
     .blob1 {
       width: 350px;
       height: 350px;
-      background: #9ca3af; /* grey-400 */
+      background: #7e22ce; /* purple */
       top: -80px;
       left: -80px;
     }
     .blob2 {
       width: 250px;
       height: 250px;
-      background: #6b7280; /* grey-500 */
+      background: #9333ea; /* lighter purple */
       bottom: -60px;
       right: -60px;
       animation-delay: 4s;
@@ -54,23 +55,24 @@
     }
 
     .login {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(0, 0, 0, 0.75);
       padding: 50px 40px;
       width: 500px;
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #d1d5db; /* grey-300 */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      border: 1px solid #5b21b6;
       backdrop-filter: blur(12px);
       position: relative;
       z-index: 1;
       animation: fadeIn 0.8s ease;
+      color: #f3e8ff;
     }
 
     .login h2 {
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #111827; /* black */
+      color: #d8b4fe; /* light purple */
       margin-bottom: 25px;
     }
 
@@ -81,21 +83,21 @@
       margin-bottom: 18px;
       font-size: 1.05em;
       border-radius: 8px;
-      border: 1px solid #9ca3af; /* grey-400 */
-      background: #f9fafb; /* grey-50 */
-      color: #111827; /* black */
+      border: 1px solid #7c3aed; /* purple border */
+      background: #1a0520; /* dark purple */
+      color: #f3e8ff;
       outline: none;
       transition: all 0.3s ease;
     }
 
     .login input:focus,
     .login select:focus {
-      box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.3); /* grey glow */
+      box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.4); /* purple glow */
       transform: scale(1.02);
     }
 
     .login input::placeholder {
-      color: #6b7280; /* grey-500 */
+      color: #d8b4fe; /* light purple placeholder */
     }
 
     .password-box {
@@ -108,7 +110,7 @@
       top: 50%;
       transform: translateY(-50%);
       cursor: pointer;
-      color: #4b5563; /* grey-600 */
+      color: #d8b4fe;
     }
 
     #btn {
@@ -118,17 +120,17 @@
       font-weight: 500;
       border: none;
       border-radius: 10px;
-      background: #111827; /* black */
+      background: #7c3aed; /* purple button */
       color: white;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
     #btn:hover {
-      background: #374151; /* grey-800 */
+      background: #a78bfa; /* lighter purple on hover */
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
     }
 
     .group {
@@ -137,7 +139,7 @@
     }
 
     .group a {
-      color: #1f2937; /* grey-900 */
+      color: #d8b4fe; /* light purple link */
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
@@ -145,7 +147,7 @@
 
     .group a:hover {
       text-decoration: underline;
-      color: #000;
+      color: #a78bfa; /* lighter purple on hover */
     }
 
     @keyframes fadeIn {
