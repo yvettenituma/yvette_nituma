@@ -26,7 +26,7 @@
       align-items: center;
       width: 100%;
       height: 100vh;
-      background: linear-gradient(to bottom right, #ede9fe, #ddd6fe, #a78bfa);
+      background: linear-gradient(to bottom right, #f5f5f5, #e5e5e5, #d4d4d4); /* greys */
     }
 
     .login {
@@ -35,7 +35,7 @@
       width: 500px;
       border-radius: 20px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #a78bfa;
+      border: 1px solid #d1d5db; /* grey-300 */
       display: flex;
       flex-direction: column;
       gap: 25px;
@@ -45,7 +45,7 @@
       text-align: center;
       font-size: 2em;
       font-weight: 600;
-      color: #6d28d9;
+      color: #111827; /* near black */
       margin-bottom: 10px;
     }
 
@@ -58,15 +58,21 @@
       width: 100%;
       padding: 15px 45px 15px 20px;
       font-size: 1.1em;
-      color: #4c1d95;
+      color: #111827;
       border-radius: 8px;
-      background: #f5f3ff;
-      border: 1px solid #c4b5fd;
+      background: #f9fafb; /* grey-50 */
+      border: 1px solid #9ca3af; /* grey-400 */
       outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .inputBox input:focus {
+      border-color: #6b7280; /* grey-500 */
+      box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.3);
     }
 
     .inputBox ::placeholder {
-      color: #7c3aed;
+      color: #6b7280; /* grey-500 */
     }
 
     .toggle-password {
@@ -76,24 +82,25 @@
       transform: translateY(-50%);
       cursor: pointer;
       font-size: 1.1em;
-      color: #7c3aed;
+      color: #4b5563; /* grey-600 */
     }
 
     button {
       width: 100%;
       padding: 15px;
       border: none;
-      background: #8b5cf6;
+      background: #111827; /* black */
       color: #fff;
       font-size: 1.15em;
       font-weight: 500;
       border-radius: 10px;
       cursor: pointer;
       transition: 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
     button:hover {
-      background: #6d28d9;
+      background: #374151; /* dark grey */
     }
 
     .group {
@@ -102,20 +109,21 @@
 
     .group a {
       font-size: 1em;
-      color: #7c3aed;
+      color: #1f2937; /* dark grey */
       font-weight: 500;
       text-decoration: none;
     }
 
     .group a:hover {
       text-decoration: underline;
+      color: #000;
     }
 
     .error-box {
-      background: rgba(139, 92, 246, 0.08);
-      color: #6d28d9;
+      background: rgba(107, 114, 128, 0.1); /* light grey bg */
+      color: #111827;
       padding: 10px;
-      border: 1px solid #6d28d9;
+      border: 1px solid #6b7280;
       border-radius: 8px;
       text-align: center;
       font-size: 0.95em;
