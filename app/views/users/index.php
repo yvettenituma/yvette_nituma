@@ -105,7 +105,7 @@
                 <td class="py-3 px-4"><?=($user['Username']);?></td>
                 <td class="py-3 px-4">
                   <span class="bg-pink-100 text-pink-700 text-sm font-medium px-3 py-1 rounded-full">
-                    <?=($user['email']);?>
+                    <?=($user['Email']);?>
                   </span>
                 </td>
                 <td class="py-3 px-4 font-medium"><?=($user['role']);?></td>
