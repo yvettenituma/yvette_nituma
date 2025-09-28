@@ -180,6 +180,8 @@ class UserController extends Controller {
             $username = $this->io->post('username');
             $password = password_hash($this->io->post('password'), PASSWORD_BCRYPT);
 
+
+            $role = 'user';
             $data = [
                 'username' => $username,
                 'email'    => $this->io->post('email'),
