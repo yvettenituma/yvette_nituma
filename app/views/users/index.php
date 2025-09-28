@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    /* Background pattern overlay */
     body::before {
       content: "";
       position: fixed;
@@ -24,34 +23,24 @@
       color: #f3e8ff;
     }
 
-    /* Table row hover */
     table tbody tr {
       transition: all 0.2s ease-in-out;
     }
     table tbody tr:hover {
-      background: #d8b4fe; /* light purple */
+      background: #7c3aed; /* medium purple */
       transform: scale(1.01);
-      color: #1a0520; /* dark text on hover */
+      color: #fff;
     }
 
-    /* Buttons glow on hover */
-    a.bg-purple-700:hover, a.bg-purple-800:hover {
-      background-color: #db2777 !important; /* pink-600 */
-      box-shadow: 0 0 15px rgba(219, 39, 119, 0.6);
+    a.bg-purple-700:hover {
+      background-color: #5b21b6 !important; /* darker purple */
+      box-shadow: 0 0 15px rgba(91, 33, 182, 0.6);
     }
     a.bg-black:hover {
-      background-color: #7c3aed !important; /* purple-700 */
-      box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+      background-color: #2d0338 !important; /* dark purple/black */
+      box-shadow: 0 0 15px rgba(45, 3, 56, 0.6);
     }
 
-    /* Pagination spacing */
-    .pagination {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
     .pagination a {
       display: inline-block;
       padding: 0.5rem 1rem;
@@ -64,7 +53,7 @@
       transition: all 0.2s ease-in-out;
     }
     .pagination a:hover {
-      background-color: #db2777; /* pink-600 */
+      background-color: #5b21b6; /* darker purple */
       transform: translateY(-2px);
     }
     .pagination strong {
@@ -77,20 +66,17 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
-    /* Search bar focus */
     input:focus {
       outline: none;
       ring: none;
-      box-shadow: 0 0 0 3px rgba(219, 39, 119, 0.4);
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.4); /* purple glow */
     }
 
-    /* Table header */
     table thead tr {
       background: linear-gradient(to right, #111827, #7c3aed);
       color: white;
     }
 
-    /* Table cells */
     td, th {
       padding: 0.75rem 1rem;
     }
@@ -99,19 +85,16 @@
 
 <body class="min-h-screen font-sans">
 
-  <!-- Navbar -->
   <nav class="bg-gradient-to-r from-black to-purple-800 shadow-md relative z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
       <a href="#" class="text-white font-semibold text-xl tracking-wide">USER MANAGEMENT</a>
-      <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:text-pink-400 transition">Logout</a>
+      <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:text-purple-300 transition">Logout</a>
     </div>
   </nav>
 
-  <!-- Main Content -->
   <div class="max-w-6xl mx-auto mt-10 px-4 relative z-10">
-    <div class="bg-black bg-opacity-80 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-pink-400/50">
+    <div class="bg-black bg-opacity-80 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-purple-700/50">
 
-      <!-- Logged In User Display -->
       <?php if(!empty($logged_in_user)): ?>
         <div class="mb-6 bg-purple-700 text-white px-4 py-3 rounded-lg shadow">
           <strong>Welcome:</strong> 
@@ -124,25 +107,22 @@
         </div>
       <?php endif; ?>
 
-      <!-- Header -->
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold">👥 USER DIRECTORY</h1>
 
-        <!-- Search Bar -->
         <form method="get" action="<?=site_url('users');?>" class="flex">
           <input 
             type="text" 
             name="q" 
             value="<?=html_escape($_GET['q'] ?? '')?>" 
             placeholder="Search user..." 
-            class="w-full border border-purple-700 bg-purple-900 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 text-white">
-          <button type="submit" class="bg-purple-700 hover:bg-pink-600 text-white px-4 rounded-r-xl transition">
+            class="w-full border border-purple-700 bg-purple-900 rounded-l-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-white">
+          <button type="submit" class="bg-purple-700 hover:bg-purple-800 text-white px-4 rounded-r-xl transition">
             🔍
           </button>
         </form>
       </div>
       
-      <!-- Table -->
       <div class="overflow-x-auto rounded-xl border border-purple-700 shadow-md">
         <table class="w-full text-center border-collapse">
           <thead>
@@ -168,7 +148,7 @@
                 <td class="space-x-3">
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['ID']);?>"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-pink-600 transition shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition shadow">
                       Update
                     </a>
                   <?php endif; ?>
@@ -176,7 +156,7 @@
                   <?php if($logged_in_user['role'] === 'admin'): ?>
                     <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
-                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-purple-700 transition shadow">
+                       class="px-4 py-2 text-sm font-medium rounded-lg bg-black text-white hover:bg-purple-900 transition shadow">
                       Delete
                     </a>
                   <?php endif; ?>
@@ -187,17 +167,15 @@
         </table>
       </div>
 
-      <!-- Pagination -->
       <div class="mt-6 flex justify-center">
         <div class="pagination">
           <?= $page; ?>
         </div>
       </div>
 
-      <!-- Create New User -->
       <div class="mt-6 text-center">
         <a href="<?=site_url('users/create')?>"
-           class="inline-block bg-purple-700 hover:bg-pink-600 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
+           class="inline-block bg-purple-700 hover:bg-purple-800 text-white font-medium px-6 py-3 rounded-lg shadow-md transition duration-200">
           Create New User
         </a>
       </div>
