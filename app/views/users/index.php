@@ -74,7 +74,7 @@
       position: relative;
       height: 120px;
       overflow: hidden;
-      background: url('cnm.jpg') center/cover no-repeat;
+      background: url('c:\Users\NPMI01\Downloads\cnm.jpg') center/cover no-repeat;
     }
     .wave-divider svg {
       position: absolute;

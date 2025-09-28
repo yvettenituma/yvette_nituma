@@ -9,7 +9,7 @@
 <body class="bg-gradient-to-br from-purple-200 via-purple-100 to-purple-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
 
   <div class="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn">
-    <h2 class="text-2xl font-semibold text-center text-purple-600 mb-6">📝 Update User</h2>
+    <h2 class="text-2xl font-semibold text-center text-purple-600 mb-6">Update User</h2>
 
     <form action="<?=site_url('users/update/'.$user['ID'])?>" method="POST" class="space-y-4">
       
@@ -57,7 +57,7 @@
 
     <!-- Return Button -->
     <a href="<?=site_url('/users');?>" class="mt-4 block text-center bg-purple-300 hover:bg-purple-400 text-white py-2 rounded-xl shadow transition">
-      ⬅ Return to Home
+      Return
     </a>
   </div>
 
