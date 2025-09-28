@@ -69,11 +69,12 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* Wave divider */
+    /* Wave divider with background photo */
     .wave-divider {
       position: relative;
-      height: 50px;
+      height: 120px;
       overflow: hidden;
+      background: url('cnm.jpg') center/cover no-repeat;
     }
     .wave-divider svg {
       position: absolute;
@@ -89,10 +90,10 @@
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-purple-700 to-purple-500 shadow-md relative z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-      <a href="#" class="text-white font-semibold text-xl tracking-wide">📊 User Management</a>
+      <a href="#" class="text-white font-semibold text-xl tracking-wide">User Management</a>
       <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
     </div>
-    <!-- Wave Divider -->
+    <!-- Wave Divider with photo -->
     <div class="wave-divider">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150">
         <path fill="#ede9fe" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,117.3C672,117,768,139,864,138.7C960,139,1056,117,1152,128C1248,139,1344,181,1392,202.7L1440,224L1440,0L0,0Z"></path>
@@ -119,7 +120,7 @@
 
       <!-- Header -->
       <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold text-purple-700">👥 User Directory</h1>
+        <h1 class="text-2xl font-semibold text-purple-700">User Directory</h1>
 
         <!-- Search Bar -->
         <form method="get" action="<?=site_url('users');?>" class="flex">
@@ -162,7 +163,7 @@
                   <?php if($logged_in_user['role'] === 'admin' || $logged_in_user['id'] == $user['ID']): ?>
                     <a href="<?=site_url('users/update/'.$user['ID']);?>"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-500 text-white hover:bg-purple-600 transition duration-200 shadow">
-                      ✏️ Update
+                      Update
                     </a>
                   <?php endif; ?>
 
@@ -170,7 +171,7 @@
                     <a href="<?=site_url('users/delete/'.$user['ID']);?>"
                        onclick="return confirm('Are you sure you want to delete this record?');"
                        class="px-4 py-2 text-sm font-medium rounded-lg bg-purple-700 text-white hover:bg-purple-800 transition duration-200 shadow">
-                      🗑️ Delete
+                      Delete
                     </a>
                   <?php endif; ?>
                 </td>
