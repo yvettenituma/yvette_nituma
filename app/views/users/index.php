@@ -69,12 +69,15 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
-    /* Wave divider with background photo */
+        /* Wave divider with background photo */
     .wave-divider {
       position: relative;
       height: 120px;
       overflow: hidden;
-      background: url('cnm.jpg') center/cover no-repeat;
+      background-image: url('<?= base_url("public/images/cnm.jpg"); ?>');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
     .wave-divider svg {
       position: absolute;
@@ -82,6 +85,7 @@
       width: 100%;
       height: 100%;
     }
+
   </style>
 </head>
 
