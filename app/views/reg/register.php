@@ -4,153 +4,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body, section {
-      width: 100%;
-      height: 100vh;
-      background: linear-gradient(to bottom right, #ede9fe, #ddd6fe, #c4b5fd);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .login {
-      background: white;
-      padding: 50px 40px;
-      width: 500px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-      border: 1px solid #c4b5fd;
-    }
-
-    .login h2 {
-      text-align: center;
-      font-size: 2em;
-      font-weight: 600;
-      color: #6d28d9; /* purple-700 */
-      margin-bottom: 25px;
-    }
-
-    .login input,
-    .login select {
-      width: 100%;
-      padding: 14px 20px;
-      margin-bottom: 18px;
-      font-size: 1.05em;
-      border-radius: 8px;
-      border: 1px solid #c4b5fd; /* purple-300 */
-      background: #f5f3ff; /* purple-50 */
-      color: #4c1d95; /* purple-900 */
-      outline: none;
-    }
-
-    .login input::placeholder {
-      color: #7c3aed; /* purple-600 */
-    }
-
-    .password-box {
-      position: relative;
-    }
-
-    .password-box i {
-      position: absolute;
-      right: 15px;
-      top: 50%;
-      transform: translateY(-50%);
-      cursor: pointer;
-      color: #7c3aed; /* purple-600 */
-    }
-
-    #btn {
-      width: 100%;
-      padding: 15px;
-      font-size: 1.2em;
-      font-weight: 500;
-      border: none;
-      border-radius: 10px;
-      background: #7c3aed; /* purple-600 */
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
-    }
-
-    #btn:hover {
-      background: #6d28d9; /* purple-700 */
-    }
-
-    .group {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .group a {
-      color: #6d28d9;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .group a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <section>
-    <div class="login">
-      <h2>Register</h2>
-      <form method="POST" action="<?= site_url('reg/register'); ?>" class="inputBox">
+<body class="bg-gradient-to-tr from-purple-100 via-purple-200 to-purple-300 min-h-screen flex items-center justify-center font-sans text-gray-800">
 
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="email" name="email" placeholder="Email" required>
+  <div class="relative bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-2xl w-full max-w-md animate-fadeIn overflow-hidden border border-purple-200">
+    <!-- Pattern Overlay -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(139,92,246,0.15)_1px,transparent_0)] [background-size:20px_20px]"></div>
 
-        <div class="password-box">
-          <input type="password" id="password" name="password" placeholder="Password" required>
-          <i class="fa-solid fa-eye" id="togglePassword"></i>
-        </div>
+    <!-- Glow effect -->
+    <div class="absolute -top-8 -right-8 w-32 h-32 bg-purple-400/30 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-purple-600/20 rounded-full blur-2xl"></div>
 
-        <div class="password-box">
-          <input type="password" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" required>
-          <i class="fa-solid fa-eye" id="toggleConfirmPassword"></i>
-        </div>
+    <h2 class="text-2xl font-semibold text-purple-700 text-center mb-6 relative z-10">📝 Register</h2>
 
-        <select name="role" required>
-          <option value="user" selected>User</option>
-          <option value="admin">Admin</option>
-        </select>
-
-        <button type="submit" id="btn">Register</button>
-      </form>
-
-      <div class="group">
-        <p>Already have an account? <a href="<?= site_url('reg/login'); ?>">Login here</a></p>
+    <form action="<?=site_url('auth/register')?>" method="POST" class="space-y-4 relative z-10">
+      <!-- Username -->
+      <div>
+        <label class="block text-purple-700 mb-1">Username</label>
+        <input type="text" name="username" required
+               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-800">
       </div>
-    </div>
-  </section>
 
-  <script>
-    function toggleVisibility(toggleId, inputId) {
-      const toggle = document.getElementById(toggleId);
-      const input = document.getElementById(inputId);
+      <!-- Email -->
+      <div>
+        <label class="block text-purple-700 mb-1">Email Address</label>
+        <input type="email" name="email" required
+               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-800">
+      </div>
 
-      toggle.addEventListener('click', function () {
-        const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
-        input.setAttribute('type', type);
-        this.classList.toggle('fa-eye');
-        this.classList.toggle('fa-eye-slash');
-      });
+      <!-- Password -->
+      <div>
+        <label class="block text-purple-700 mb-1">Password</label>
+        <input type="password" name="password" required
+               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-800">
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label class="block text-purple-700 mb-1">Confirm Password</label>
+        <input type="password" name="confirm_password" required
+               class="w-full px-4 py-3 border border-purple-200 bg-purple-50 rounded-xl focus:ring-2 focus:ring-purple-400 focus:outline-none text-gray-800">
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+              class="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-3 rounded-xl shadow-md transition duration-200">
+        Register
+      </button>
+    </form>
+
+    <!-- Back to Login -->
+    <a href="<?=site_url('/login');?>" class="mt-4 block text-center bg-purple-300 hover:bg-purple-400 text-white py-2 rounded-xl shadow transition relative z-10">
+      🔐 Back to Login
+    </a>
+  </div>
+
+  <!-- Animation -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    toggleVisibility('togglePassword', 'password');
-    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
-  </script>
+    .animate-fadeIn { animation: fadeIn 0.8s ease; }
+  </style>
 </body>
 </html>
