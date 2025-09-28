@@ -8,6 +8,35 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+    /* Background pattern overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 20px 20px, rgba(124, 58, 237, 0.05) 2%, transparent 0);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+    body {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Table row hover */
+    table tbody tr {
+      transition: all 0.2s ease-in-out;
+    }
+    table tbody tr:hover {
+      background: #f5f3ff; /* purple-50 */
+      transform: scale(1.01);
+    }
+
+    /* Buttons glow on hover */
+    a.bg-purple-500:hover, a.bg-purple-600:hover, a.bg-purple-700:hover {
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+    }
+
+    /* Pagination spacing */
     .pagination {
       display: flex;
       gap: 0.5rem;
@@ -24,10 +53,11 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       text-decoration: none;
       font-weight: 500;
-      transition: background-color 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
     .pagination a:hover {
       background-color: #6d28d9; /* purple-700 */
+      transform: translateY(-2px);
     }
     .pagination strong {
       display: inline-block;
@@ -38,22 +68,41 @@
       font-weight: 600;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
+
+    /* Wave divider */
+    .wave-divider {
+      position: relative;
+      height: 50px;
+      overflow: hidden;
+    }
+    .wave-divider svg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
   </style>
 </head>
 
 <body class="bg-gradient-to-br from-purple-200 via-purple-100 to-purple-300 min-h-screen font-sans text-gray-800">
 
   <!-- Navbar -->
-  <nav class="bg-gradient-to-r from-purple-700 to-purple-500 shadow-md">
+  <nav class="bg-gradient-to-r from-purple-700 to-purple-500 shadow-md relative z-10">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
       <a href="#" class="text-white font-semibold text-xl tracking-wide">📊 User Management</a>
       <a href="<?=site_url('reg/logout');?>" class="text-white font-medium hover:underline">Logout</a>
     </div>
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150">
+        <path fill="#ede9fe" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,133.3C384,139,480,117,576,117.3C672,117,768,139,864,138.7C960,139,1056,117,1152,128C1248,139,1344,181,1392,202.7L1440,224L1440,0L0,0Z"></path>
+      </svg>
+    </div>
   </nav>
 
   <!-- Main Content -->
-  <div class="max-w-6xl mx-auto mt-10 px-4">
-    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-xl rounded-2xl p-6">
+  <div class="max-w-6xl mx-auto mt-10 px-4 relative z-10">
+    <div class="bg-white bg-opacity-90 backdrop-blur-sm shadow-2xl rounded-2xl p-6 transition-transform duration-300 hover:shadow-purple-300/50">
 
       <!-- Logged In User Display -->
       <?php if(!empty($logged_in_user)): ?>
@@ -87,7 +136,7 @@
       </div>
       
       <!-- Table -->
-      <div class="overflow-x-auto rounded-xl border border-purple-200">
+      <div class="overflow-x-auto rounded-xl border border-purple-200 shadow-md">
         <table class="w-full text-center border-collapse">
           <thead>
             <tr class="bg-gradient-to-r from-purple-700 to-purple-500 text-white">
